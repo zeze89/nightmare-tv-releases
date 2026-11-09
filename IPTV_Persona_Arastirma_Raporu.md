@@ -105,3 +105,22 @@ Tarih: 2026-11-09 · Yöntem: 9 persona simülasyonu (3 Fable, 3 Opus, 3 Sonnet;
 - Google Trends (TR, DE, BR, UK, BAE) ve mağaza anahtar kelime araçları
 - Reddit (r/IPTV, r/firetv, r/selfhosted), Technopat/DonanımHaber başlık taraması
 - 10-15 gerçek kullanıcıyla görüşme veya anket (özellikle marka adı ve kurulum akışı)
+
+## 10. Ek deney: aynı persona, üç model (TV, Türkiye, 45 yaş, çocuklu aile)
+
+Aynı prompt Fable, Opus ve Sonnet'e verildi. Prompt cihaz markasını modele bıraktığı için Fable ve Opus Samsung Tizen, Sonnet LG webOS seçti; üçü de personayı Bursa'ya yerleştirdi (prompt'un yönlendirmesi). Web araması: Fable 3, Opus 2, Sonnet 0. Yine simülasyon; üç çıktı aynı model ailesinden geldiği için örtüşmeleri bağımsız doğrulama sayılmaz.
+
+| Boyut | Fable | Opus | Sonnet |
+|---|---|---|---|
+| Ortak çekirdek | Hepsinde: #1 tema kurulum, #1 acı noktası kumandayla URL yazmak, çözüm QR/telefon eşleştirme, Türkçe arayüz, çocuk kilidi, favoriler, mağazada bulunma = güven | aynı | aynı |
+| Mağaza arama sorguları | En somut ve marka odaklı (`ibo player`, `ss iptv`, `xtream`) | `siptv`, `smart iptv`, MAC adresi vurgusu | `smarters`, `ibo player`, `smart iptv`, yazım hatası ve Türkçe karakter sorunu |
+| Öne çıkan ek bulgu | Satıcıya özel kurulum kodu (B2B dağıtım), kodek/ses sorunu, 2 TV'de aynı hesap | MAC adresi/web portalı modeli bilgisayar adımında kayıp yaratır, düşük RAM'de kademeli liste yükleme | Sesli aramada "IPTV" kelimesinin yanlış tanınması, kısa ve telaffuzu kolay isim avantajı |
+| Marka adı ("Nightmare") | İşaretlemedi | İşaretlemedi | Güven/aile engeli olarak işaretledi |
+| Fiyat | Tek seferlik düşük ücret, 7 gün deneme | Tek seferlik TL fiyat, tanıdık ödeme | Sürpriz ücret deal-breaker |
+| Kaynak kalitesi | Donanımhaber ve Samsung forumu, satıcı sayfaları; 2 arama doğrulayıcı çıkmadı, bunu belirtti | Çoğu SEO/satış blogu; Smart IPTV kaldırılması için "resmi duyuru bulamadım" dedi | Kaynak yok |
+
+**Sonuçlar**
+- Çekirdek ihtiyaçlar (kurulum duvarı, donma, QR eşleştirme, çocuk kilidi, mağaza varlığı) üç modelde de aynı; bu bulgular model seçimine bağlı görünmüyor.
+- Farklar derinlik ve vurguda: Fable en operasyonel (satıcı kodu, kodek), Opus en stratejik/risk odaklı, Sonnet kullanıcıya en yakın ve en kısa.
+- **Marka adı bulgusu zayıfladı:** toplam 5 TV personasından 3'ü işaretledi (Opus UK, Fable DE, Sonnet TR), 2'si işaretlemedi. Tutarsız olduğu için gerçek kullanıcı testi olmadan karar verilmemeli.
+- Temiz bir model karşılaştırması için cihaz markası ve persona ayrıntıları sabitlenip aynı deney tekrarlanmalı.
