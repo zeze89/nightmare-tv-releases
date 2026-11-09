@@ -17,6 +17,40 @@ Tarih: 2026-11-09 · Kapsam: 3 sabit persona (PC, TV, mobil) × 3 model (Fable, 
 4. **"Pazarda tek" iddiası kısmen savunulabilir:** Android TV + Windows + Mac'te aynı ürün ve bulut senkron kombinasyonu rakip taramasında bulunamadı (kanıt: güçlü/orta). Glass Ledger, Best copy, Missed seconds gibi özellikler rakiplerde bulunamadı ama "yokluk kanıtı" doğası gereği zayıf.
 5. **En büyük dış risk mağaza kaldırması.** 2026'da "yalnızca player" olmak Google Play'den toplu kaldırmayı engellemedi (JioStar/Delhi Yüksek Mahkemesi, Mart 2026, 36 uygulama; XCIPTV, Televizo, Smarters dahil). Microsoft Store için kaldırma haberi bulunamadı: MSIX sürümü stratejik avantaj.
 
+## 1b. Güncelleme: ürün sahibi doğrulaması (bulgunun yeniden çerçevelenmesi)
+
+Ürün sahibi, araştırmanın en kritik ihtiyaçlarının çoğunun uygulamada **zaten var** olduğunu bildirdi (sahibinin beyanı; ben uygulamayı çalıştırarak doğrulamadım):
+
+| Persona ihtiyacı | Durum | Ürün sahibinin beyanı |
+|---|---|---|
+| Telefondan / QR ile kurulum, pano algılama | **VAR** | 8 karakterlik kod + şifreli QR; panodan liste algılama |
+| 10 arayüz dili | **VAR** | 10 dil |
+| Çocuk modu, ebeveyn denetimi | **VAR** | Çocuk profili, günlük süre sınırı, gece modu, PIN |
+| Sağlayıcı/uygulama ayrımı yapan hata teşhisi | **VAR** | Hata mesajları sorunun sağlayıcıda mı uygulamada mı olduğunu ayırt ediyor |
+| Otomatik failover | **VAR** | Otomatik ayna geçişi |
+| Gizlilik: bulut senkron onayı, Xtream şifresi | **VAR** | Bulut eşitleme açık onay istiyor; Xtream şifresi istenirse cihazda şifreleniyor |
+
+**Bunun anlamı:** 9 personanın 9'unda "kritik eksik" çıkan maddelerin en az 5'i aslında ürün eksiği değil, **kullanıcıya ulaşmayan bir değer**. Persona ajanları release notlarını ve bilgi notunu okudu ve bu özellikleri göremedi. Gerçek bir kullanıcı da mağaza sayfasından, web sitesinden veya ilk açılıştan göremiyorsa aynı sonuca varır. Bu yüzden asıl sorun şu üçlü oldu: **görünürlük, kanıtlanabilir güven ve ticari netlik**, yazılım geliştirme değil.
+
+**Raporun geri kalanında şu düzeltmeler geçerli:**
+- Bölüm 4'te 3, 4, 9 ve 17 numaralı satırlar güncellendi. "Eksik" değil, **"iletişim eksiği"** olarak okunmalı.
+- Bölüm 5'te yol haritasındaki 6 (QR/kurulum), 9 (çocuk modu) ve 13 (failover) **geliştirme değil, anlatma** işi.
+- Kalan gerçekten doğrulanmamış maddeler: Chromecast/AirPlay, telefonda PiP, mobil veri sayacı, Play'de TV listelemesi, Fire TV, fiyat ve deneme, çok cihaz lisansı, Windows anlık kayıt, kanal yönetimi derinliği, hatırlatma kanalı, yazılı gizlilik politikası ve kod imzası, site içeriği.
+- Puanlarda en çok etkilenecek olanlar: **kurulum** (TV'de 4-5 → daha yüksek), **güven** (4 → daha yüksek, gizlilik özellikleri görünür olursa) ve **tavsiye**. Bunu ölçmek için aynı personaları düzeltilmiş bilgi notuyla tekrar çalıştırmak ucuz bir test (bölüm 11).
+
+### İletişim açığını kapatma planı (yazılım gerektirmeyen veya çok az gerektiren)
+
+1. **İlk açılış (onboarding):** İlk ekranda "Telefondan kur: 8 karakterlik kod veya QR" seçeneğini ve "Panodaki listeyi algıladık, eklensin mi?" önerisini öne çıkarın. TV personalarının terk noktası kumandayla yazmaktı; bu ekran onların ilk görmesi gereken şey.
+2. **Mağaza sayfaları (Play, Microsoft Store):** Ekran görüntülerini özellik başlıklarıyla düzenleyin: "Telefonla 30 saniyede kur", "Çocuk profili, günlük süre sınırı, gece modu", "Sorun sağlayıcıda mı, uygulamada mı: net cevap", "Sağlayıcı düşerse otomatik ayna geçişi", "10 dil", "Veriniz açık onayınız olmadan buluta gitmez". Açıklamanın ilk 3 satırına bunları koyun.
+3. **Web sitesi ve karşılaştırma tablosu:** "Nightmare TV ile diğer IPTV player'lar" tablosunda bu özellikler olsun. Fable PC personası "ne topluyorsunuz?" sorusunu silme kriteri sayıyordu: gizlilik politikasını tek sayfada yayımlayın (bulut onayı, şifreleme, Glass Ledger).
+4. **Release notları:** Notlar teknik ve ayrıntılı, ki bu teknik kitleyi çekiyor (Opus PC), ama ana özellikler (QR, çocuk profili, ayna geçişi) hiç geçmiyor. Sürüm notlarına kısa bir "Bilmeniz gerekenler" bölümü ekleyin ve GitHub README'yi doldurun (şu an yalnızca iki satır).
+5. **Arama anahtar kelimeleri (yerel dilde):** "QR ile IPTV kurulumu", "çocuk profilli IPTV oynatıcı", "IPTV sağlayıcı mı uygulama mı hata", "Xtream otomatik yedek sunucu". Persona sorgularının çoğu bu temalardaydı.
+6. **Kısa videolar (2-3 dk):** "Televizyona telefonla kurulum" ve "Çocuk profili nasıl kurulur". TV personaları keşif için YouTube'u birincil kanal olarak gösterdi.
+7. **Uygulama içi keşif:** Kullanıcı bir sorunla karşılaştığında (örneğin kanal açılmadı) hata ekranı "Ayna sunucuya geç" veya "Teşhisi satıcıya gönder" gibi ilgili özelliğe yönlendirsin.
+
+### Yeni konumlandırma notu
+Ayna geçişi, 8 karakterlik kod/şifreli QR ve açık onaylı bulut gibi özellikler, "tek biz" iddiaları için yeni adaylar. **Rakiplerde olup olmadığı rakip taramasında kontrol edilmedi** (Fable PC "failover" rakiplerde yok demişti ama web ile doğrulamadı). İddia etmeden önce kontrol edin.
+
 ## 2. Ürünün release notlarından görünen profili
 
 - **Platformlar:** Windows (Setup, Portable, MSIX/Store), macOS (.dmg), Android telefon/tablet/Android TV (arm64, armv7, x86_64, universal APK; Google Play).
@@ -51,13 +85,13 @@ Tarih: 2026-11-09 · Kapsam: 3 sabit persona (PC, TV, mobil) × 3 model (Fable, 
 |---|---|---|---|---|
 | 1 | **Fiyat, lisans kapsamı ve deneme süresinin şeffaflığı** (deneme sonrası Canlı TV kilitleniyor, tutar notlarda yok) | 9/9 | Hepsi | Kritik |
 | 2 | **Marka adı "Nightmare"** (kâbus çağrışımı, aile TV'sinde red, arama sonuçlarında korku içerikleriyle karışma) | 9/9 | TV, mobil | Kritik (güven/keşif) |
-| 3 | **Gizlilik politikası, telemetri ayrıntısı, kod imzası, yayıncı kimliği** | 9/9 | PC (Windows SmartScreen) | Kritik |
-| 4 | **Kurulum: QR / telefondan eşleştirme / pano veya paylaş menüsünden içe aktarma** | 6/9 (TV ve mobil 6/6) | TV | Kritik (TV), yüksek (mobil) |
+| 3 | **Yazılı gizlilik politikası ve kod imzası / yayıncı kimliği** (bulut senkron açık onayı ve Xtream şifresinin cihazda şifrelenmesi ürün sahibine göre MEVCUT, ama kullanıcıya görünür biçimde anlatılmıyor) | 9/9 | PC (Windows SmartScreen) | Kritik (iletişim) |
+| 4 | **Kurulum: QR / telefondan eşleştirme / pano algılama.** **VAR** (8 karakterlik kod + şifreli QR, panodan liste algılama); personalar bilmiyordu | 6/9 (TV ve mobil 6/6) | TV | Kritik (iletişim) |
 | 5 | **Chromecast / AirPlay / DLNA** | 9/9 anıldı, öncelik cihaza göre | Mobil (kritik), PC ve TV (orta) | Kritik (mobil) |
 | 6 | **Mobil veri kontrolü** (hücresel kalite kilidi, veri sayacı, "bu maç ~X GB") | 3/3 mobil | Mobil | Kritik |
 | 7 | **Tizen / webOS desteği** | 3/3 TV | TV | Kritik (aile tek uygulama ister) |
 | 8 | **Kanal yönetimi** (ülke/dil/grup gizleme, sıralama, çift kayıt, logo) | 8/9 | PC, mobil | Yüksek-kritik |
-| 9 | **Çocuk modu** (PIN var; "yalnızca çizgi film", süre sınırı yok) | 3/3 TV | TV | Yüksek |
+| 9 | **Çocuk modu.** **VAR** (çocuk profili, günlük süre sınırı, gece modu, PIN); personalar bilmiyordu | 3/3 TV | TV | Yüksek (iletişim) |
 | 10 | **Maç/kanal hatırlatma bildirimi** (reminders var, kapsamı belirsiz) | 8/9 | Mobil | Yüksek |
 | 11 | **Telefonda PiP ve arka planda yalnızca ses** | 3/3 mobil | Mobil | Yüksek |
 | 12 | **Çok cihazlı aile lisansı** | 6/9 | TV | Yüksek |
@@ -65,12 +99,14 @@ Tarih: 2026-11-09 · Kapsam: 3 sabit persona (PC, TV, mobil) × 3 model (Fable, 
 | 14 | **TMDB poster/metadata** | 9/9 anıldı | Mobil, TV | Orta |
 | 15 | **Satıcı ekosistemi: MAC/cihaz kodu ile portal aktivasyonu; Play'de TV listelemesi** | Fable TV | TV (Türkiye) | Yüksek (Fable TV'ye özgü) |
 | 16 | **Kaynak kodu kapalı** (repo yalnızca installer dağıtıyor) | PC 3/3 | PC (teknik) | Orta |
-| 17 | **Xtream + yedek M3U otomatik failover** | Fable PC | PC | Orta |
+| 17 | **Otomatik failover (ayna geçişi).** **VAR** (ürün sahibi beyanı); kullanıcı bilmiyordu | Fable PC | PC | Orta (iletişim) |
 | 18 | **Türkçe kurulum videosu, yardım içeriği, topluluk kanalı** | TV 3/3 | TV | Yüksek (keşif) |
 | 19 | **Güncelleme kanalı karışıklığı** (Setup / Portable / MSIX farklı kanallar) | Fable PC | PC | Orta |
 | 20 | iOS, Linux, Fire TV net destek bilgisi | 3-5/9 | Değişken | Orta |
 
 ## 5. Eklenmesi gereken özellikler: öncelikli yol haritası
+
+> **Güncelleme (bölüm 1b):** Aşağıdaki P1-6 (QR/kurulum), P1-9 (çocuk modu) ve P2-13 (failover) ürün sahibine göre zaten mevcut; bunlar geliştirme değil **anlatma** işi. Öncelik P0'a ve bölüm 1b'deki iletişim planına kaydı.
 
 ### Önce doğrula (yazılım yazmadan)
 Bölüm 4'teki maddelerin hangisi üründe zaten var? Varsa mağaza metni, ekran görüntüleri ve web sitesi bunu anlatmalı. Özellikle: Chromecast, telefonda PiP, QR/pano, veri sayacı, çocuk modu, çok cihaz lisansı, kayıt kapsamı, Play'de TV listelemesi, deneme süresi.
@@ -140,6 +176,8 @@ Satıcılar "MAC gönder, IBO/Smarters kur" modelini ittiği için kullanıcı s
 
 ## 9. Ürün sahibi için doğrulama listesi
 
+**Cevaplananlar:** 4 (QR/kod/pano: var), 8 (bulut senkron açık onay ve Xtream şifresi cihazda şifreleniyor: var; yazılı politika ve kod imzası hâlâ belirsiz), 11 (çocuk profili, günlük süre sınırı, gece modu, PIN: var), 13 (10 dil var; hangileri belirtilmedi). Ayrıca failover (ayna geçişi) ve sağlayıcı/uygulama ayrımı yapan hata teşhisi var. **Hâlâ açık:** 1, 2, 3, 5, 6, 7, 9, 10, 12, 14 ve 8'in yazılı politika/kod imzası kısmı.
+
 Aşağıdaki sorulara cevap verirseniz raporu "eksik" yerine "var/yok" olarak kesinleştirebilirim. Bunların çoğu release notlarında geçmiyor:
 
 1. Chromecast/AirPlay/DLNA var mı?
@@ -172,6 +210,10 @@ Aşağıdaki sorulara cevap verirseniz raporu "eksik" yerine "var/yok" olarak ke
 3. 10-15 kullanıcıyla görüşme veya anket: marka adı, kurulum akışı, fiyat/deneme tercihi.
 4. P0 maddeleri (fiyat netliği, güven paketi, marka alt başlığı) düşük maliyetle hemen yapılabilir.
 5. İsterseniz aynı deneyi Tizen/webOS ve iOS personalarıyla genişletebilirim.
+
+## 12. Önerilen test: iletişim hipotezini ölçmek
+
+Hipotez: "Kullanıcı bu özellikleri bilseydi kurulum, güven ve tavsiye puanları yükselirdi." Ölçmek ucuz: aynı 3 personayı (PC, TV, mobil) tek modelde, bilgi notunun düzeltilmiş haliyle (QR/kod, pano, çocuk profili, ayna geçişi, açık onaylı bulut, şifreli Xtream şifresi) tekrar çalıştırıp puanları bölüm 3'teki mevcut puanlarla karşılaştırın. Bu hâlâ simülasyon olur; gerçek kanıt için mağaza sayfası A/B testi ve 10-15 kullanıcıyla görüşme gerekir.
 
 ## Ek: kaynaklar
 
